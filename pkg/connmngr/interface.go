@@ -9,3 +9,8 @@ type Connection interface {
 type ConnectionFactory interface {
 	CreateConnection() (Connection, error)
 }
+
+type ConnectionManager interface {
+	AddClient(client string, cnnFactory ConnectionFactory) error
+	ConnectTo(client string) (Connection, error)
+}
